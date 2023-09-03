@@ -119,7 +119,7 @@ set img-url ${mirror}/${branch}/releases/${arch}/netboot-${version}
 set sig-url sigs/${branch}/${arch}/${version}
 set repo-url ${mirror}/${branch}/main
 set modloop-url ${img-url}/modloop-${flavor}
-set apkovl-url https://raw.githubusercontent.com/pxe-alpine/boot/main/box.apkovl.tar.gz
+set apkovl-url https://github.com/pxe-box/netboot.xyz-custom/raw/master/box.apkovl.tar.gz
 
 imgfree
 kernel ${img-url}/vmlinuz-${flavor} ${cmdline} alpine_repo=${repo-url} modloop=${modloop-url} apkovl=${apkovl-url} ${console} ${acpi} ${ssh_key}
