@@ -115,6 +115,7 @@ goto menu
 :boot
 isset ${console} && set console console=${console} ||
 set mirror http://dl-cdn.alpinelinux.org/alpine
+set mirror2 https://github.com/pxebox/netboot.xyz-custom/raw/master/ipxe-shimx64.efi
 set img-url ${mirror}/${branch}/releases/${arch}/netboot-${version}
 set sig-url sigs/${branch}/${arch}/${version}
 set repo-url ${mirror}/${branch}/main
@@ -124,6 +125,7 @@ set apkovl-url https://github.com/pxe-box/netboot.xyz-custom/raw/master/box.apko
 imgfree
 kernel ${img-url}/vmlinuz-${flavor} ${cmdline} alpine_repo=${repo-url} modloop=${modloop-url} apkovl=${apkovl-url} ${console} ${acpi} ${ssh_key}
 initrd ${img-url}/initramfs-${flavor}
+shim   ${mirror2}
 iseq ${img_verify} enabled && goto verify_img || goto no_img_verify
 :verify_img
 imgverify vmlinuz-${flavor} ${sig-url}/vmlinuz-${flavor}.sig
